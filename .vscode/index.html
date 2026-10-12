@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Discover, explore and register for college events at IEM.">
+
+  <meta name="theme-color" content="#f7f7fc">
+
+  <title>IEM Events | College Event Management</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container nav-container">
+
+      <a href="#home" class="brand" aria-label="IEM Events home">
+        <div class="logo">IEM</div>
+
+        <div>
+          <h1>IEM Events</h1>
+          <span>Department of CSE • AIML</span>
+        </div>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="navToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="siteNav">
+        ☰
+      </button>
+
+      <nav id="siteNav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#registration">Register</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+        <button
+          class="theme-btn"
+          id="themeToggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          title="Toggle dark mode">
+          <span class="theme-icon">☾</span>
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+
+        <div class="hero-text">
+          <p class="tag">DISCOVER • CREATE • CONNECT</p>
+
+          <h2>
+            Where Ideas Meet
+            <span>Experience.</span>
+          </h2>
+
+          <p>
+            Discover exciting hackathons, hands-on workshops,
+            inspiring talks and unforgettable campus celebrations.
+            Your next college experience starts here.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#events" class="btn primary">
+              Explore Events →
+            </a>
+
+            <a href="#registration" class="btn secondary">
+              Join an Event
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div>
+              <strong>06+</strong>
+              <span>Featured Events</span>
+            </div>
+
+            <div>
+              <strong>04</strong>
+              <span>Event Categories</span>
+            </div>
+
+            <div>
+              <strong>01</strong>
+              <span>Campus Community</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85"
+              alt="Students attending a college conference">
+
+            <div class="image-overlay">
+              <span class="live-dot"></span>
+              CAMPUS LIFE, REIMAGINED
+            </div>
+          </div>
+
+          <div class="floating-card">
+            <span class="floating-icon">✦</span>
+            <div>
+              <strong>Make It Happen</strong>
+              <p>Learn something extraordinary.</p>
+            </div>
+          </div>
+
+          <div class="clock-card">
+            <span class="clock-label">INDIA STANDARD TIME</span>
+            <div id="clock">00:00:00</div>
+            <p>Your campus, always in motion.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= EVENT COUNTDOWN ================= -->
+    <section class="countdown-section" aria-label="Next event countdown">
+      <div class="container">
+
+        <div class="countdown-card">
+
+          <div class="countdown-info">
+            <p class="tag">COMING UP NEXT</p>
+            <h2 id="cdTitle">Discover the next event</h2>
+            <p id="cdMeta">Explore upcoming campus experiences.</p>
+          </div>
+
+          <div class="countdown-timer">
+
+            <div class="time-unit">
+              <strong id="cdDays">00</strong>
+              <span>Days</span>
+            </div>
+
+            <div class="time-unit">
+              <strong id="cdHours">00</strong>
+              <span>Hours</span>
+            </div>
+
+            <div class="time-unit">
+              <strong id="cdMins">00</strong>
+              <span>Minutes</span>
+            </div>
+
+            <div class="time-unit">
+              <strong id="cdSecs">00</strong>
+              <span>Seconds</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= EVENTS ================= -->
+    <section id="events" class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="tag">YOUR NEXT ADVENTURE</p>
+          <h2>Explore Our Events</h2>
+          <p>
+            From coding challenges to creative celebrations,
+            find the experience that inspires you.
+          </p>
+        </div>
+
+        <div
+          class="eventFilters filter-bar"
+          id="eventFilters"
+          role="group"
+          aria-label="Filter events by category">
+
+          <button
+            class="chip is-active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true">
+            All Events
+          </button>
+
+          <button
+            class="chip"
+            type="button"
+            data-filter="technical"
+            aria-pressed="false">
+            Technical
+          </button>
+
+          <button
+            class="chip"
+            type="button"
+            data-filter="workshop"
+            aria-pressed="false">
+            Workshops
+          </button>
+
+          <button
+            class="chip"
+            type="button"
+            data-filter="lecture"
+            aria-pressed="false">
+            Lectures
+          </button>
+
+          <button
+            class="chip"
+            type="button"
+            data-filter="cultural"
+            aria-pressed="false">
+            Cultural
+          </button>
+
+        </div>
+
+        <ul id="eventList" class="events-grid" aria-live="polite">
+          <!-- Events are generated by script.js -->
+        </ul>
+
+        <p id="eventEmpty" hidden>
+          No events found in this category. Try another filter.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ================= REGISTRATION ================= -->
+    <section id="registration" class="section alt">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="tag">SAVE YOUR SPOT</p>
+          <h2>Join the Experience</h2>
+          <p>
+            Complete the registration form and get ready
+            to be part of something exciting.
+          </p>
+        </div>
+
+        <form id="regForm" class="form-card" novalidate>
+
+          <div class="form-intro">
+            <h3>Student Registration</h3>
+            <p>Fields marked with * are required.</p>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="studentName">Full Name *</label>
+              <input
+                type="text"
+                id="studentName"
+                name="studentName"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required>
+
+              <small class="error" id="err-studentName"></small>
+            </div>
+
+            <div class="field">
+              <label for="rollNo">Roll Number *</label>
+              <input
+                type="text"
+                id="rollNo"
+                name="rollNo"
+                placeholder="Enter your 10-digit roll number"
+                required>
+
+              <small class="error" id="err-rollNo"></small>
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required>
+
+              <small class="error" id="err-email"></small>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="10-digit mobile number"
+                autocomplete="tel"
+                inputmode="numeric"
+                required>
+
+              <small class="error" id="err-phone"></small>
+            </div>
+
+            <div class="field">
+              <label for="department">Department *</label>
+
+              <select id="department" name="department" required>
+                <option value="">Choose your department</option>
+                <option value="CSE">Computer Science (CSE)</option>
+                <option value="AIML">Artificial Intelligence & ML</option>
+                <option value="ECE">Electronics & Communication</option>
+                <option value="EE">Electrical Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="BBA">Business Administration</option>
+              </select>
+
+              <small class="error" id="err-department"></small>
+            </div>
+
+            <div class="field">
+              <label>Gender *</label>
+
+              <div class="radio-group">
+                <label>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Male">
+                  Male
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Female">
+                  Female
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Other">
+                  Other
+                </label>
+              </div>
+
+              <small class="error" id="err-gender"></small>
+            </div>
+
+            <div class="field full">
+              <label for="eventSelect">Choose Your Event *</label>
+
+              <select id="eventSelect" name="eventSelect" required>
+                <option value="">Loading events...</option>
+              </select>
+
+              <small class="error" id="err-eventSelect"></small>
+            </div>
+
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">
+              Complete Registration →
+            </button>
+
+            <p id="regStatus" class="form-status" role="status"
+               aria-live="polite"></p>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+
+    <!-- ================= GALLERY ================= -->
+    <section id="gallery" class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="tag">MOMENTS THAT MATTER</p>
+          <h2>Life Beyond the Classroom</h2>
+          <p>
+            A glimpse of the creativity, collaboration
+            and energy that make campus life memorable.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85"
+              alt="Students at a technical conference"
+              loading="lazy">
+            <figcaption>
+              <span>01 / TECH</span>
+              <strong>Ideas in Action</strong>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=85"
+              alt="People connecting at an event"
+              loading="lazy">
+            <figcaption>
+              <span>02 / COMMUNITY</span>
+              <strong>Better Together</strong>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
+              alt="Live stage performance"
+              loading="lazy">
+            <figcaption>
+              <span>03 / CULTURE</span>
+              <strong>Feel the Energy</strong>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=85"
+              alt="Cycling and sporting activities"
+              loading="lazy">
+            <figcaption>
+              <span>04 / SPORTS</span>
+              <strong>Push Your Limits</strong>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=85"
+              alt="Learning session in a classroom"
+              loading="lazy">
+            <figcaption>
+              <span>05 / LEARNING</span>
+              <strong>Learn by Doing</strong>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=85"
+              alt="A large event venue"
+              loading="lazy">
+            <figcaption>
+              <span>06 / CELEBRATION</span>
+              <strong>Make Memories</strong>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section alt">
+      <div class="container about-grid">
+
+        <div class="about-content">
+          <p class="tag">OUR COMMUNITY</p>
+
+          <h2>
+            More Than Events.
+            <span>It's an Experience.</span>
+          </h2>
+
+          <p>
+            The Department of Computer Science and Engineering,
+            with its focus on Artificial Intelligence and Machine
+            Learning, encourages students to explore ideas,
+            collaborate across disciplines and build practical skills.
+          </p>
+
+          <p>
+            IEM Events brings campus activities together in one
+            convenient place, helping students discover opportunities,
+            participate in meaningful experiences and connect with
+            the college community.
+          </p>
+
+          <a href="#events" class="btn primary">
+            Find Your Next Event →
+          </a>
+        </div>
+
+        <div class="coordinator-card">
+
+          <div class="avatar">DC</div>
+
+          <p class="coordinator-label">MEET THE COORDINATOR</p>
+
+          <h3>Dr. Debashis Coordinator</h3>
+
+          <p class="coordinator-role">Department Event Coordinator</p>
+
+          <div class="coordinator-divider"></div>
+
+          <div class="coordinator-detail">
+            <span>✉</span>
+            <div>
+              <strong>Email</strong>
+              <p>coordinator@iem.edu.in</p>
+            </div>
+          </div>
+
+          <div class="coordinator-detail">
+            <span>⌂</span>
+            <div>
+              <strong>Office</strong>
+              <p>Department of CSE / AIML</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="tag">LET'S CONNECT</p>
+          <h2>We'd Love to Hear From You</h2>
+          <p>
+            Have a question, an idea or feedback?
+            Get in touch with our event team.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-info">
+
+            <div class="contact-item">
+              <span class="contact-icon">⌖</span>
+              <div>
+                <strong>Visit Us</strong>
+                <p>
+                  Institute of Engineering & Management,
+                  Kolkata, West Bengal, India.
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon">✉</span>
+              <div>
+                <strong>Email Us</strong>
+                <p>events@iem.edu.in</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon">☎</span>
+              <div>
+                <strong>Get in Touch</strong>
+                <p>Contact the department office for event enquiries.</p>
+              </div>
+            </div>
+
+            <div class="contact-note">
+              <h3>Have an event idea?</h3>
+              <p>
+                We welcome student-led workshops, competitions,
+                talks and creative activities.
+              </p>
+              <a href="#feedbackForm">Share your idea ↗</a>
+            </div>
+
+          </div>
+
+
+          <form id="feedbackForm" class="form-card" novalidate>
+
+            <div class="form-intro">
+              <h3>Send Us a Message</h3>
+              <p>Your suggestions help us improve campus experiences.</p>
+            </div>
+
+            <div class="field">
+              <label for="fbName">Your Name *</label>
+              <input
+                type="text"
+                id="fbName"
+                name="fbName"
+                placeholder="Enter your name"
+                autocomplete="name"
+                required>
+
+              <small class="error" id="err-fbName"></small>
+            </div>
+
+            <div class="field">
+              <label for="fbEmail">Email Address *</label>
+              <input
+                type="email"
+                id="fbEmail"
+                name="fbEmail"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required>
+
+              <small class="error" id="err-fbEmail"></small>
+            </div>
+
+            <div class="field">
+              <label for="fbMessage">Your Message *</label>
+              <textarea
+                id="fbMessage"
+                name="fbMessage"
+                rows="5"
+                placeholder="Tell us what you think..."
+                required></textarea>
+
+              <small class="error" id="err-fbMessage"></small>
+            </div>
+
+            <button type="submit" class="btn primary">
+              Send Feedback →
+            </button>
+
+            <p
+              id="fbStatus"
+              class="form-status"
+              role="status"
+              aria-live="polite"></p>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+
+      <a href="#home" class="footer-brand">
+        <span class="footer-logo">IEM</span>
+        <span>IEM Events</span>
+      </a>
+
+      <p>
+        © <span data-current-year>2026</span>
+        IEM Events. All rights reserved.
+      </p>
+
+      <a href="#home" class="back-to-top">
+        Back to top ↑
+      </a>
+
+    </div>
+  </footer>
+
+</body>
+</html>
